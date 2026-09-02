@@ -5,6 +5,7 @@ from page_github import GitHubPage
 
 SIZE_IDS = ["Wisecoco", "Acer", "LG", "iPhone 16 Pro", "Samsung Galaxy S25", "Xiaomi"]
 
+
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация на пк")
 @allure.story("Пропуск тестов для мобильных устройств")
@@ -18,6 +19,7 @@ def test_desktop_sign_in_with_skip(desktop_driver):
     page.click_desktop_sign_in()
 
     assert "login" in page.get_current_url()
+
 
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация на мобильны")

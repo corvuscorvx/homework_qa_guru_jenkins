@@ -3,6 +3,7 @@ import pytest
 from conftest import DESKTOP_SIZES, MOBILE_SIZES
 from page_github import GitHubPage
 
+
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация")
 @allure.story("Авторизация на пк")
@@ -16,6 +17,7 @@ def test_desktop_sign_in(desktop_driver):
     page.click_desktop_sign_in()
 
     assert "login" in page.get_current_url()
+
 
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация")

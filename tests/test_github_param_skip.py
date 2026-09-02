@@ -3,6 +3,7 @@ import allure
 from conftest import DESKTOP_PARAMS, MOBILE_PARAMS
 from page_github import GitHubPage
 
+
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация на пк")
 @allure.story("Пропуск тестов для мобильных устройств по параметрам")
@@ -16,6 +17,7 @@ def test_desktop_sign_in_param_skip(desktop_driver):
     page.click_desktop_sign_in()
 
     assert "login" in page.get_current_url()
+
 
 @allure.epic("Веб-форма")
 @allure.feature("Авторизация на пк")
