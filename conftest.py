@@ -1,7 +1,8 @@
 import pytest
-import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 DESKTOP_SIZES = [(1280, 720), (1920, 1080), (2560, 1440)]
 MOBILE_SIZES = [(402, 874), (360, 780), (394, 875)]
@@ -38,9 +39,9 @@ def create_driver(width: int, height: int):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    os.environ["SELENIUM_MANAGER_BASE_DIR"] = os.getcwd()
+    service = Service(ChromeDriverManager().install())
 
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.set_window_size(width, height)
     driver.implicitly_wait(5)
     return driver
