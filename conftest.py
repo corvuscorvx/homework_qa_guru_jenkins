@@ -1,4 +1,5 @@
 import pytest
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -36,6 +37,9 @@ def create_driver(width: int, height: int):
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+
+    os.environ["SELENIUM_MANAGER_BASE_DIR"] = os.getcwd()
+
     driver = webdriver.Chrome(options=options)
     driver.set_window_size(width, height)
     driver.implicitly_wait(5)
